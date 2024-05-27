@@ -2,7 +2,7 @@ import { IncomingMessage, ServerResponse } from 'http';
 import { validate as isIdValid } from 'uuid';
 import { UsersService } from './users.service';
 import { User } from './models/user.model';
-import { softValidateUserData, validateUserData } from './validations/user-fields.validate.ts';
+import { validateUserData } from './validations/user-fields.validate.ts';
 import { IUsersController } from './interfaces/users-controller.interface';
 import { createRes } from '../utils';
 import { HttpStatus, ResponseMessages } from '../common/constants';
@@ -55,6 +55,10 @@ export class UsersController extends BaseController implements IUsersController 
 
     const newUser = await this.userService.createUser(data);
 
+    if (!newUser) {
+      throw new CustomError();
+    }
+
     return createRes({
       res,
       code: HttpStatus.CREATED,
@@ -97,7 +101,7 @@ export class UsersController extends BaseController implements IUsersController 
       throw new CustomError(ResponseMessages.INVALID_ID, HttpStatus.BAD_REQUEST);
     }
 
-    if (!softValidateUserData(data)) {
+    if (!validateUserData(data)) {
       throw new CustomError(ResponseMessages.INVALID_PARAMS, HttpStatus.BAD_REQUEST);
     }
 

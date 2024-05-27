@@ -6,9 +6,9 @@ export interface IUsersService {
 
   getUser: (id: string) => Promise<User | null>;
 
-  createUser: (fields: CreateUserDto) => Promise<User>;
+  createUser: (fields: CreateUserDto) => Promise<User | null>;
 
-  updateUser: (id: string, fields: CreateUserDto) => Promise<User | boolean>;
+  updateUser: (id: string, fields: CreateUserDto) => Promise<User | null>;
 
   deleteUser: (id: string) => Promise<boolean>;
 }

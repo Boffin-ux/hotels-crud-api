@@ -14,13 +14,6 @@ const validateHobbies = ({ hobbies }: User) => {
   );
 };
 
-export const softValidateUserData = (userData: User) => {
-  return (
-    (validateName(userData) || validateAge(userData) || validateHobbies(userData)) &&
-    Object.keys(userData).length < 4
-  );
-};
-
 export const validateUserData = (userData: User) => {
   return (
     validateName(userData) &&

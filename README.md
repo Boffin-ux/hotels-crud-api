@@ -33,6 +33,10 @@ npm run start:prod
 ```
 api/users
 ```
+## Postman
+```
+REST API basics CRUD (postman).json
+```
 
 ## Requests
 
