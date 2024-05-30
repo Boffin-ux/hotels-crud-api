@@ -1,13 +1,13 @@
-import { IncomingMessage, ServerResponse } from 'http';
+import { Response, Request, NextFunction } from 'express';
 
 export interface IUsersController {
-  getAll: (res: ServerResponse) => Promise<void>;
+  getAll: (res: Response) => Promise<void>;
 
-  getById: (res: ServerResponse, req: IncomingMessage) => Promise<void>;
+  getById: (res: Response, req: Request, next: NextFunction) => Promise<void>;
 
-  post: (res: ServerResponse, req: IncomingMessage) => Promise<void>;
+  post: (res: Response, req: Request, next: NextFunction) => Promise<void>;
 
-  delete: (res: ServerResponse, req: IncomingMessage) => Promise<void>;
+  delete: (res: Response, req: Request, next: NextFunction) => Promise<void>;
 
-  put: (res: ServerResponse, req: IncomingMessage) => Promise<void>;
+  put: (res: Response, req: Request, next: NextFunction) => Promise<void>;
 }
