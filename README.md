@@ -35,7 +35,7 @@ api/users
 ```
 ## Postman
 ```
-REST API basics CRUD (postman).json
+Use RestAPI-basics-CRUD.postman.json
 ```
 
 ## Requests
