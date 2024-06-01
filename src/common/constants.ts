@@ -17,7 +17,7 @@ enum ResponseMessages {
   CREATED = 'Created',
   BAD_REQUEST = 'Bad request',
   INTERNAL_SERVER_ERROR = 'Internal Server Error',
-  INVALID_PARAMS = 'Invalid parameters (name, age and hobbies is required fields)',
+  INVALID_PARAMS = 'Invalid parameters (username, age and hobbies is required fields)',
   INVALID_ENDPOINT = 'Invalid endpoint',
   INVALID_ID = `User ID isn't valid`,
 }

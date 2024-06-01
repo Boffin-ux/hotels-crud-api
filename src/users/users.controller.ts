@@ -1,6 +1,6 @@
 import { validate as isIdValid } from 'uuid';
 import { UsersService } from './users.service';
-import { User } from './models/user.model';
+import { User } from './user.entity';
 import { validateUserData } from './validations/user-fields.validate.ts';
 import { IUsersController } from './interfaces/users-controller.interface';
 import { HttpStatus, ResponseMessages } from '../common/constants';
@@ -74,10 +74,6 @@ export class UsersController implements IUsersController {
   async put(res: Response, req: Request, next: NextFunction) {
     const id = req.params.userId;
     const data: User = req.body;
-
-    if (!data) {
-      return next(new CustomError(ResponseMessages.BAD_REQUEST, HttpStatus.BAD_REQUEST));
-    }
 
     if (!isIdValid(id)) {
       return next(new CustomError(ResponseMessages.INVALID_ID, HttpStatus.BAD_REQUEST));

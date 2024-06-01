@@ -1,4 +1,4 @@
-import { User } from '../models/user.model';
+import { User } from '../user.entity';
 
 const validateName = ({ username }: User) => {
   return typeof username === 'string' && username.length > 0;

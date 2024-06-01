@@ -6,6 +6,7 @@ import usersRouter from './users/users.router';
 import { CustomError } from './common/errors/custom.error';
 import { IError } from './common/interfaces/app.interface';
 import { Response, Request, NextFunction } from 'express';
+import { InitDataSource } from './data-source';
 
 // Server
 dotenv.config();
@@ -30,6 +31,8 @@ app.use((err: IError, _req: Request, res: Response, _next: NextFunction) => {
 });
 
 app.listen(PORT, () => console.log(`Server is running on port: ${PORT}`));
+
+InitDataSource();
 
 process.on('unhandledRejection', (err) => {
   console.log(`Unhandled Rejection ${err}`);
